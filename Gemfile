@@ -50,3 +50,4 @@ end
 gem 'comfortable_mexican_sofa', '~> 1.11.0'
 gem 'comfy_blog', '~> 1.1.0'
 
+gem "twitter-bootstrap-rails", "~> 2.2.8"
