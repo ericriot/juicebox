@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Juice Box - CT's sexiest party and or cover band</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= image_tag "logo.jpg", :id => 'logo' %>
+
+<ul id="nav">
+	<li><a href="/">Home</a></li>
+	<li><a href="/bio">Bio</a></li>
+	<li><a href="/media">Media</a></li>
+	<li><a href="/gigs">Gigs</a></li>
+	<li><a href="/contact">Contact</a></li>
+</ul>
+
+<%= yield %>
+
+</body>
+</html>

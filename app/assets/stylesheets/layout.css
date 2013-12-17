@@ -1,0 +1,7 @@
+body { background-color:#FED718; }
+
+body, h1, h2, h3, h4, h5, h6, td, th, p, span, div { 
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+img#logo { border:1px solid gray; padding:5px; }
