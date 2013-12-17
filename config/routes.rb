@@ -1,4 +1,6 @@
 Juicebox::Application.routes.draw do
+  resources :songs
+
   comfy_route :blog_admin, :path => '/admin'
   comfy_route :blog, :path => '/blog'
 
