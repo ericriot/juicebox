@@ -2,7 +2,7 @@
 
 - @posts.each do |post|
   
-  %h1= link_to post.title, blog_post_path(@cms_site.path, @blog.path, post.slug)
+  %h3= link_to post.title, blog_post_path(@cms_site.path, @blog.path, post.slug)
   .author
     = post.author
   .date

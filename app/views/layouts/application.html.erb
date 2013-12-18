@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Juice Box - CT's sexiest party and or cover band</title>
+  <title>
+  <% if content_for(:title) %>
+    <%= yield(:title) %> - Juice Box
+  <% elsif @cms_page %>
+    <%= @cms_page.label %> - Juice Box
+  <% else %>
+     Juice Box
+  <% end %>
+</title>
+
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -12,36 +21,42 @@
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=265957720223760";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <div id="container">
 	
 	<ul class="nav nav-tabs">
-		<li><a href="/">Home</a></li>
-		<li><a href="/bio">Bio</a></li>
-		<li><a href="/media">Media</a></li>
-		<li><a href="/gigs">Gigs</a></li>
-		<li><a href="/contact">Contact</a></li>
-		<li><a href="/songs">Songs</a></li>
+		<li<%= raw " class=\"active\"" if request.fullpath == "/"  %>><a href="/">Home</a></li>
+		<li<%= raw " class=\"active\"" if request.fullpath.start_with?('/bio') %>><a href="/bio">Bio</a></li>
+		<li<%= raw " class=\"active\"" if request.fullpath.start_with?('/media') %>><a href="/media">Media</a></li>
+		<li<%= raw " class=\"active\"" if request.fullpath.start_with?('/events') %>><a href="/events">Gigs</a></li>
+		<li<%= raw " class=\"active\"" if request.fullpath.start_with?('/contact') %>><a href="/contact">Contact</a></li>
+		<li<%= raw " class=\"active\"" if request.fullpath.start_with?('/songs') %>><a href="/songs">Songs</a></li>
+		<li<%= raw " class=\"active\"" if request.fullpath.start_with?('/blog') %>><a href="/blog">Blog</a></li>
 	</ul>
 		
 	
 	<div class="row">
-		<div class="span3">
-			<%= image_tag "logo.jpg", :id => 'logo' %>
+		<div class="span2">
+			<%= image_tag "logo.jpg", :id => 'logo', :class => 'img-responsive' %>
 		</div>
-		<div class="span9">
-			<div class="fb-like" data-href="https://www.facebook.com/rockYourJuiceBox" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+		<div class="span8">
+			<div class="fb-like" data-href="http://www.facebook.com/rockyourjuicebox" data-layout="button" data-action="like" data-show-faces="true" data-share="true">
+			</div>
+
+			<%= yield %>
+
+		</div>
+		<div class="span3">
+			<h2>Fan Pics</h2>
+			Alley / Gutter. Maybe a new pic each time. <br />
+			<%= image_tag "squeeze.jpg",  :class => 'img-responsive img-rounded' %>
 		</div>
 	</div>
 		
-	<div class="row">
-		<div class="span12">	
-			<%= yield %>
-		</div>
-	</div>
+	
 
 </div>
 

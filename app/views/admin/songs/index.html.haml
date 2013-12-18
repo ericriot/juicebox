@@ -1,0 +1,23 @@
+.page-header
+  = link_to 'New Song', new_admin_song_path, :class => 'btn pull-right'
+  %h2= 'Songs'
+
+= paginate @songs
+
+%table.table.table-hover.table-bordered
+  %tr
+    %th.main Name
+    %th Artist
+    %th Year
+    %th
+  - @songs.each do |song|
+    %tr
+      %td.main= song.title
+      %td= song.artist
+      %td= song.year
+      %td
+        .btn-group
+          = link_to 'Edit', edit_admin_song_path(song), :class => 'btn btn-small'
+          = link_to 'Delete', admin_song_path(song), :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-small btn-danger'
+
+= paginate @songs

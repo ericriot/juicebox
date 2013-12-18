@@ -1,5 +1,15 @@
 Juicebox::Application.routes.draw do
-  resources :songs
+  namespace :admin do
+    resources :songs
+  end
+
+  resources :events
+
+  namespace :admin do
+    resources :events
+  end
+
+  resources :songs, :events
 
   comfy_route :blog_admin, :path => '/admin'
   comfy_route :blog, :path => '/blog'
@@ -9,6 +19,8 @@ Juicebox::Application.routes.draw do
   # Make sure this routeset is defined last
   comfy_route :cms, :path => '/', :sitemap => true
 
+  root :to => "cms/content#render_html"
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,25 @@
+.page-header
+  = link_to 'New Event', new_admin_event_path, :class => 'btn pull-right'
+  %h2= 'Events'
+
+= paginate @events
+
+%table.table.table-hover.table-bordered
+  %tr
+    %th.main Name
+    %th Date
+    %th Location
+    %th Fb Link
+    %th
+  - @events.each do |event|
+    %tr
+      %td.main= event.name
+      %td= event.date
+      %td= event.location
+      %td= event.fb_link != "" ? "Yes" : "No"
+      %td
+        .btn-group
+          = link_to 'Edit', edit_admin_event_path(event), :class => 'btn btn-small'
+          = link_to 'Delete', admin_event_path(event), :method => :delete, :data => { :confirm => 'Are you sure?' }, :class => 'btn btn-small btn-danger'
+
+= paginate @events

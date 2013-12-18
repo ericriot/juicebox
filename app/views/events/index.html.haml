@@ -1,0 +1,19 @@
+- content_for :title, "Events"
+
+%h1 Come See Us.
+
+%table{:class => "table"}
+  %tr
+    %th Name
+    %th Date
+    %th Location
+    
+  - @events.each do |event|
+    %tr
+      %td= event.name
+      %td= event.date
+      %td= event.location
+      
+
+%br
+
