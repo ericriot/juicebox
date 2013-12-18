@@ -21,12 +21,5 @@ test:
 
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  database: d26dio6gqj2j7j
-  username: yulwfdkgkdozbk
-  password: oE5hPY3EPn99YcGCAgFUggLI9c
-  host: ec2-54-221-227-25.compute-1.amazonaws.com
-  port: 5432
+  ## this is handled over at heroku :-)
 
