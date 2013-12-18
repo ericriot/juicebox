@@ -6,13 +6,16 @@
   %tr
     %th Name
     %th Date
-    %th Location
     
   - @events.each do |event|
     %tr
       %td= event.name
       %td= event.date
-      %td= event.location
+    %tr
+      %td{colspan:2, style:'border-top:none; padding-top:none;'}
+        = "- " 
+        %a= event.location
+        
       
 
 %br
