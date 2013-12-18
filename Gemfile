@@ -60,3 +60,5 @@ gem 'comfy_blog', '~> 1.1.0'
 
 gem "twitter-bootstrap-rails", "~> 2.2.8"
 gem 'validates_timeliness', '~> 3.0'
+
+gem 'rails_12factor', group: :production
